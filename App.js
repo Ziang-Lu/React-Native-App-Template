@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import {
   ActivityIndicator,
@@ -26,9 +18,15 @@ import {
 } from './styles';
 
 class BlinkText extends Component {
-  // state object
-  state = {showingText: true};
+  constructor(props) {
+    super(props);
+    this.state = {
+      showingText: true,
+    };
+  }
 
+  // This method is called after the component output has been to the DOM, for
+  // the FIRST TIME.
   componentDidMount() {
     // Toggle every second, so we need to use setInterval() rather than
     // setTimeout()
@@ -40,6 +38,8 @@ class BlinkText extends Component {
       1000,
     );
     // When setState() is called, the component will re-render.
+    // => DO NOT update this.state directly, since it will NOT TRIGGER the
+    //    the component to be re-rendered.
   }
 
   render() {
@@ -65,9 +65,12 @@ class LayoutDemo extends Component {
 }
 
 class WordReverser extends Component {
-  state = {
-    text: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+    };
+  }
 
   _reverseStr(str) {
     return str
@@ -201,7 +204,10 @@ class TouchableBasics extends Component {
     // https://reactnative.dev/docs/handling-touches
     return (
       <View style={touchableDemoStyles.container}>
-        <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
+        <TouchableHighlight
+          onPress={this._onPressButton}
+          onLongPress={this._onLongPressButton}
+          underlayColor="white">
           <View style={touchableDemoStyles.button}>
             <Text style={touchableDemoStyles.buttonText}>
               TouchableHighlight
@@ -214,19 +220,12 @@ class TouchableBasics extends Component {
 }
 
 export default class FetchDemo extends Component {
-  state = {
-    loading: true,
-    dataSource: [],
-  };
-
-  async componentDidMount() {
-    try {
-      const response = await fetch('https://reactnative.dev/movies.json');
-      const jsonData = await response.json();
-      this.setState({loading: false, dataSource: jsonData.movies});
-    } catch (err) {
-      return console.error(err);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      dataSource: [],
+    };
   }
 
   _renderItem({item}) {
@@ -237,6 +236,19 @@ export default class FetchDemo extends Component {
     );
   }
 
+  async componentDidMount() {
+    try {
+      const response = await fetch('https://reactnative.dev/movies.json');
+      const jsonData = await response.json();
+      this.setState({
+        loading: false,
+        dataSource: jsonData.movies,
+      });
+    } catch (err) {
+      return console.error(err);
+    }
+  }
+
   render() {
     if (this.state.loading) {
       return (
@@ -245,12 +257,13 @@ export default class FetchDemo extends Component {
         </View>
       );
     }
+    // this.state.loading === false
     return (
       <View style={{flex: 1, paddingTop: 20}}>
         <FlatList
           data={this.state.dataSource}
           renderItem={this._renderItem}
-          keyExtractor={({id}, index) => id}
+          keyExtractor={(item, index) => item.id}
           removeClippedSubviews={true}
         />
       </View>
