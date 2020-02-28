@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   ActivityIndicator,
   Button,
@@ -55,10 +55,10 @@ class LayoutDemo extends Component {
   render() {
     return (
       <View
-        style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
-        <View style={{flex: 1, backgroundColor: 'powerblue'}} />
-        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
+        style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+        <View style={{ flex: 1, backgroundColor: 'powerblue' }} />
+        <View style={{ flex: 2, backgroundColor: 'skyblue' }} />
+        <View style={{ flex: 3, backgroundColor: 'steelblue' }} />
       </View>
     );
   }
@@ -81,11 +81,11 @@ class WordReverser extends Component {
 
   render() {
     return (
-      <View style={{padding: 50}}>
+      <View style={{ padding: 50 }}>
         <TextInput
-          style={{height: 40}}
+          style={{ height: 40 }}
           placeholder="Type here to translate"
-          onChangeText={text => this.setState({text})}
+          onChangeText={text => this.setState({ text })}
         />
         <Text>
           {this.state.text
@@ -121,13 +121,13 @@ class BasicsDemo extends Component {
 }
 
 class SectionListBasics extends Component {
-  _renderSectionHeader({section}) {
+  _renderSectionHeader({ section }) {
     return (
       <Text style={sectionListDemoStyles.sectionHeader}>{section.title}</Text>
     );
   }
 
-  _renderItem({item}) {
+  _renderItem({ item }) {
     return <Text style={sectionListDemoStyles.item}>{item}</Text>;
   }
 
@@ -136,7 +136,7 @@ class SectionListBasics extends Component {
       <View style={sectionListDemoStyles.container}>
         <SectionList
           sections={[
-            {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
+            { title: 'D', data: ['Devin', 'Dan', 'Dominic'] },
             {
               title: 'J',
               data: [
@@ -228,7 +228,7 @@ export default class FetchDemo extends Component {
     };
   }
 
-  _renderItem({item}) {
+  _renderItem({ item }) {
     return (
       <Text>
         {item.title}, {item.releaseYear}
@@ -252,14 +252,14 @@ export default class FetchDemo extends Component {
   render() {
     if (this.state.loading) {
       return (
-        <View style={{flex: 1, padding: 20}}>
+        <View style={{ flex: 1, padding: 20 }}>
           <ActivityIndicator />
         </View>
       );
     }
     // this.state.loading === false
     return (
-      <View style={{flex: 1, paddingTop: 20}}>
+      <View style={{ flex: 1, paddingTop: 20 }}>
         <FlatList
           data={this.state.dataSource}
           renderItem={this._renderItem}
