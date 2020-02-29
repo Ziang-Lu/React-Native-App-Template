@@ -97,12 +97,45 @@ $ npx react-native run-android
 $ react-native run-android  # To Android
 ```
 
-<br>
-
 ***
 
 ### Linting
 
 Besides the default linting settings, follow this guide https://github.com/Ziang-Lu/JavaScript-Learning-Notes/blob/master/JavaScript%20Linting.md
 
+Remember to update `.eslintrc.js` as well
+
 ***
+
+<br>
+
+## Incorporating `TypeScript` into `React-Native` App
+
+1. Simply follow the official documentation: https://reactnative.dev/docs/typescript
+
+   Remember to add the following to `tsconfig.json`:
+
+   ```json
+   {
+     "compilerOptions": {
+       "outDir": "./out"
+     }
+   }
+   ```
+
+2. Go ahead and add typing and `TypeScript` features to the `.tsx` files
+
+   Remember to change one line in `index.js`:
+
+   ```js
+   // Instead of
+   import App from './App';
+   
+   // Since we build the transpiled JavaScript files to "./out", change the above line to the following
+   import App from './out/App';
+   ```
+
+3. For linting, besides the linting settings above, follow this guide https://github.com/Ziang-Lu/JavaScript-Learning-Notes/blob/master/TypeScript-crash-course/TypeScript%20Learning%20Notes.md#typescript-linting
+
+   Remember to update `.eslintrc.js` as well
+

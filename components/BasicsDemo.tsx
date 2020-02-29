@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
 
-class BlinkText extends Component {
-  constructor(props) {
+interface BlinkTextProps {
+  style: object;
+  text: string;
+}
+
+interface BlinkTextState {
+  showingText: boolean;
+}
+
+class BlinkText extends Component<BlinkTextProps, BlinkTextState> {
+  public constructor(props: BlinkTextProps) {
     super(props);
     this.state = {
       showingText: true,
@@ -11,12 +20,12 @@ class BlinkText extends Component {
 
   // This method is called after the component output has been to the DOM, for
   // the FIRST TIME.
-  componentDidMount() {
+  public componentDidMount() {
     // Toggle every second, so we need to use setInterval() rather than
     // setTimeout()
     setInterval(
       () =>
-        this.setState(prevState => ({
+        this.setState((prevState: BlinkTextState) => ({
           showingText: !prevState.showingText,
         })),
       1000,
@@ -26,7 +35,7 @@ class BlinkText extends Component {
     //    the component to be re-rendered.
   }
 
-  render() {
+  public render() {
     if (this.state.showingText) {
       return <Text style={this.props.style}>{this.props.text}</Text>;
     } else {
@@ -36,7 +45,7 @@ class BlinkText extends Component {
 }
 
 class LayoutDemo extends Component {
-  render() {
+  public render() {
     return (
       <View
         style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
@@ -48,22 +57,28 @@ class LayoutDemo extends Component {
   }
 }
 
-class WordReverser extends Component {
-  constructor(props) {
+interface Props {}
+
+interface WordReverserState {
+  text: string;
+}
+
+class WordReverser extends Component<Props, WordReverserState> {
+  public constructor(props: Props) {
     super(props);
     this.state = {
       text: '',
     };
   }
 
-  _reverseStr(str) {
+  private _reverseStr(str: string): string {
     return str
       .split('')
       .reverse()
       .join('');
   }
 
-  render() {
+  public render() {
     return (
       <View style={{ padding: 50 }}>
         <TextInput
@@ -84,7 +99,7 @@ class WordReverser extends Component {
 
 export default class BasicsDemo extends Component {
   // Returns JSX, which essentially embeds XML in JavaScript
-  render() {
+  public render() {
     const pic = {
       uri:
         'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg',

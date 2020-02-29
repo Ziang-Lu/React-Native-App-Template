@@ -7,8 +7,21 @@ import {
   View,
 } from 'react-native';
 
-export default class FetchDemo extends Component {
-  constructor(props) {
+interface MovieEntry {
+  id: string;
+  title: string;
+  releaseYear: string;
+}
+
+export interface Props {}
+
+interface State {
+  loading: boolean;
+  dataSource: MovieEntry[];
+}
+
+export default class FetchDemo extends Component<Props, State> {
+  public constructor(props: Props) {
     super(props);
     this.state = {
       loading: true,
@@ -16,7 +29,7 @@ export default class FetchDemo extends Component {
     };
   }
 
-  _renderItem({ item }) {
+  private _renderItem({ item }: { item: MovieEntry }) {
     return (
       <Text>
         {item.title}, {item.releaseYear}
@@ -24,7 +37,7 @@ export default class FetchDemo extends Component {
     );
   }
 
-  async componentDidMount() {
+  public async componentDidMount() {
     try {
       const response = await fetch('https://reactnative.dev/movies.json');
       const jsonData = await response.json();
@@ -37,7 +50,7 @@ export default class FetchDemo extends Component {
     }
   }
 
-  render() {
+  public render() {
     if (this.state.loading) {
       return (
         <View style={styles.container}>
@@ -51,7 +64,7 @@ export default class FetchDemo extends Component {
         <FlatList
           data={this.state.dataSource}
           renderItem={this._renderItem}
-          keyExtractor={(item, index) => item.id}
+          keyExtractor={(item: MovieEntry, index: number) => item.id}
           removeClippedSubviews={true}
         />
       </View>

@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 
+interface Section {
+  title: string;
+  data: string[];
+}
+
 export default class SectionListBasics extends Component {
-  _renderSectionHeader({ section }) {
+  private _renderSectionHeader({ section }: { section: Section }) {
     return <Text style={styles.sectionHeader}>{section.title}</Text>;
   }
 
-  _renderItem({ item }) {
+  private _renderItem({ item }: { item: string }) {
     return <Text style={styles.item}>{item}</Text>;
   }
 
-  render() {
+  public render() {
     return (
       <View style={styles.container}>
         <SectionList
@@ -31,7 +36,7 @@ export default class SectionListBasics extends Component {
           ]}
           renderSectionHeader={this._renderSectionHeader}
           renderItem={this._renderItem}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item: string, index: number) => index.toString()}
         />
       </View>
     );

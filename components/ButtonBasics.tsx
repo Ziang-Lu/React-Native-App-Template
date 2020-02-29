@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Alert, Button, StyleSheet, View } from 'react-native';
 
 export default class ButtonBasics extends Component {
-  _onPressButton() {
-    alert('You tapped a button!');
+  private _onPressButton(): void {
+    Alert.alert('You tapped a button!');
   }
 
-  render() {
+  public render() {
     return (
       <View style={styles.container}>
         <View style={styles.buttonContainer}>

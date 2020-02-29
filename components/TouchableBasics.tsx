@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+} from 'react-native';
 
 export default class TouchableBasics extends Component {
-  _onPressButton() {
-    alert('You tapped a button!');
+  private _onPressButton(): void {
+    Alert.alert('You tapped a button!');
   }
 
-  _onLongPressButton() {
-    alert('You long-pressed a button!');
+  private _onLongPressButton(): void {
+    Alert.alert('You long-pressed a button!');
   }
 
-  render() {
+  public render() {
     // For more about Touchables, check out:
     // https://reactnative.dev/docs/handling-touches
     return (
