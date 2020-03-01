@@ -9,11 +9,11 @@ import {
 
 export default class TouchableBasics extends Component {
   private _onPressButton(): void {
-    Alert.alert('You tapped a button!');
+    Alert.alert('Congrats!', 'You tapped a button!', { text: 'OK' });
   }
 
   private _onLongPressButton(): void {
-    Alert.alert('You long-pressed a button!');
+    Alert.alert('Congrats!', 'You long-pressed a button!', { text: 'OK' });
   }
 
   public render() {
