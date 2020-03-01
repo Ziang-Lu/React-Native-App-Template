@@ -1,5 +1,3 @@
-import 'react-native-gesture-handler';
-
 import React, { Component } from 'react';
 import {
   ActivityIndicator,
@@ -8,7 +6,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 
 interface MovieEntry {
   id: string;
@@ -16,14 +13,14 @@ interface MovieEntry {
   releaseYear: string;
 }
 
-export interface Props {}
+export interface Props { }
 
 interface State {
   loading: boolean;
   dataSource: MovieEntry[];
 }
 
-export default class MyApp extends Component<Props, State> {
+export default class FetchDemo extends Component<Props, State> {
   public constructor(props: Props) {
     super(props);
     this.state = {
@@ -62,17 +59,16 @@ export default class MyApp extends Component<Props, State> {
       );
     }
     // this.state.loading === false
+    // Note that this also serves as a FlatList demo
     return (
-      <NavigationContainer>
-        <View style={styles.container}>
-          <FlatList
-            data={this.state.dataSource}
-            renderItem={this._renderItem}
-            keyExtractor={(item: MovieEntry, index: number) => item.id}
-            removeClippedSubviews={true}
-          />
-        </View>
-      </NavigationContainer>
+      <View style={styles.container}>
+        <FlatList
+          data={this.state.dataSource}
+          renderItem={this._renderItem}
+          keyExtractor={(item: MovieEntry, index: number) => item.id}
+          removeClippedSubviews={true}
+        />
+      </View>
     );
   }
 }

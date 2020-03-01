@@ -9,11 +9,11 @@ import {
 
 export default class TouchableBasics extends Component {
   private _onPressButton(): void {
-    Alert.alert('Congrats!', 'You tapped a button!', { text: 'OK' });
+    Alert.alert('Congrats!', 'You tapped a button!');
   }
 
   private _onLongPressButton(): void {
-    Alert.alert('Congrats!', 'You long-pressed a button!', { text: 'OK' });
+    Alert.alert('Congrats!', 'You long-pressed a button!');
   }
 
   public render() {
@@ -22,9 +22,9 @@ export default class TouchableBasics extends Component {
     return (
       <View style={styles.container}>
         <TouchableHighlight
+          underlayColor="white"
           onPress={this._onPressButton}
-          onLongPress={this._onLongPressButton}
-          underlayColor="white">
+          onLongPress={this._onLongPressButton}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>TouchableHighlight</Text>
           </View>
