@@ -1,5 +1,15 @@
 import React from 'react';
-import { Alert, Button, Text, View } from 'react-native';
+import { Alert, Button, Text, TouchableOpacity, View } from 'react-native';
+
+function StyledButton({ onPress, text }) {
+  return (
+    <TouchableOpacity style={{ paddingVertical: 20 }} onPress={onPress}>
+      <View style={{ padding: 10, backgroundColor: 'skyblue' }}>
+        <Text>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
 
 export default function DetailsScreen({ route, navigation }) {
   // Add a button on the header
@@ -27,12 +37,20 @@ export default function DetailsScreen({ route, navigation }) {
       <Text>Details Screen</Text>
       <Text>itemId: {itemId}</Text>
       <Text>Other parameters: {JSON.stringify(otherParam)}</Text>
-      <Button
-        title="Go to Details... again!"
+      <StyledButton
         onPress={() => navigation.push('Details')}
-      />
-      <Button title="Go Back" onPress={() => navigation.goBack()} />
-      <Button title="Go Home" onPress={() => navigation.navigate('Home')} />
+        text={'Go to Details AGAIN'}></StyledButton>
+      <View
+        style={{
+          flexDirection: 'row',
+        }}>
+        <StyledButton
+          onPress={navigation.goBack}
+          text={'Go Back'}></StyledButton>
+        <StyledButton
+          onPress={() => navigation.navigate('Home')}
+          text={'Go Home'}></StyledButton>
+      </View>
     </View>
   );
 }

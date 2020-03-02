@@ -7,7 +7,7 @@ import TabNavigatorApp from './components/tab-navigator/TabNavigatorApp';
 
 export default class MyApp extends Component {
   public render() {
-    // return <StackNavigatorApp></StackNavigatorApp>;
-    return <TabNavigatorApp></TabNavigatorApp>;
+    return <StackNavigatorApp></StackNavigatorApp>;
+    // return <TabNavigatorApp></TabNavigatorApp>;
   }
 }
