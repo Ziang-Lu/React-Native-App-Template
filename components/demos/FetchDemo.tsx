@@ -13,7 +13,7 @@ interface MovieEntry {
   releaseYear: string;
 }
 
-export interface Props { }
+export interface Props {}
 
 interface State {
   loading: boolean;

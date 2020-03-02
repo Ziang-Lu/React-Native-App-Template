@@ -129,3 +129,21 @@ Remember to update `.eslintrc.js` as well
 
 Check out the official documentation: https://reactnative.dev/docs/navigation as well as the documentation from "React Navigation": https://reactnavigation.org/docs/getting-started
 
+Common navigators:
+
+* **Stack Navigator**
+
+  ```shell
+  $ npm install @react-navigation/stack
+  ```
+
+  For usage, check out `components/stack-navigator/`
+
+* **Tab Navigator**
+
+  ```shell
+  $ npm install @react-navigation/bottom-tabs
+  ```
+
+  For usage, check out `components/tab-navigator/`
+
