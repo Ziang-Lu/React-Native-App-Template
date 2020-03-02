@@ -139,13 +139,17 @@ Common navigators:
 
   For usage, check out `components/stack-navigator/`
 
-* **Tab Navigator**
+* **Tab Navigator** (Bottom tabbed)
 
   ```shell
   $ npm install @react-navigation/bottom-tabs
   ```
 
   For usage, check out `components/tab-navigator/`
+
+* **Drawer Navigator** (From left)
+
+  Check out the official documentation: https://reactnavigation.org/docs/drawer-based-navigation
 
 <br>
 
