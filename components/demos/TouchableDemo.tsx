@@ -36,8 +36,8 @@ export default class TouchableBasics extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 60,
     alignItems: 'center',
+    paddingTop: 60,
   },
   button: {
     marginBottom: 30,
@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3',
   },
   buttonText: {
-    padding: 20,
     textAlign: 'center',
+    padding: 20,
     color: 'white',
   },
 });

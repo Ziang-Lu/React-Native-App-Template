@@ -47,8 +47,7 @@ class BlinkText extends Component<BlinkTextProps, BlinkTextState> {
 class LayoutDemo extends Component {
   public render() {
     return (
-      <View
-        style={{ flex: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center' }}>
         <View style={{ flex: 1, backgroundColor: 'powerblue' }} />
         <View style={{ flex: 2, backgroundColor: 'skyblue' }} />
         <View style={{ flex: 3, backgroundColor: 'steelblue' }} />
