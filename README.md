@@ -147,3 +147,9 @@ Common navigators:
 
   For usage, check out `components/tab-navigator/`
 
+<br>
+
+## License
+
+This repo is distributed under the <a href="https://github.com/Ziang-Lu/React-Native-App-Template/blob/master/LICENSE">MIT license</a>.
+
