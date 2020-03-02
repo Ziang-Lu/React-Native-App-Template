@@ -1,9 +1,8 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, Button, Text, View } from 'react-native';
 
 export default function DetailsScreen({ route, navigation }) {
   // Add a button on the header
-  // TODO: Figure this out
   React.useLayoutEffect(() =>
     navigation.setOptions({
       headerRight: () => (
@@ -19,7 +18,12 @@ export default function DetailsScreen({ route, navigation }) {
   // Get the parameters
   const { itemId, otherParam } = route.params;
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
       <Text>Details Screen</Text>
       <Text>itemId: {itemId}</Text>
       <Text>Other parameters: {JSON.stringify(otherParam)}</Text>
@@ -32,11 +36,3 @@ export default function DetailsScreen({ route, navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

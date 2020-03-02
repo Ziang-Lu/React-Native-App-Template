@@ -1,18 +1,15 @@
 import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Text, TextInput, View } from 'react-native';
 
 export default function HomeScreen({ route, navigation }) {
   const [titleInput, setTitleInput] = React.useState('');
-
-  // TODO: Figure this out
-  React.useEffect(() => {
-    if (route.params?.post) {
-      // Feel free to do something with route.params.post
-    }
-  }, [route.params?.post]);
-
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
       <Text>Home Screen</Text>
       <Button
         title="Go to Details"
@@ -47,11 +44,3 @@ export default function HomeScreen({ route, navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

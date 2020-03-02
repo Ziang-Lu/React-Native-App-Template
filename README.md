@@ -147,6 +147,8 @@ Common navigators:
 
   For usage, check out `components/tab-navigator/`
 
+  *For `react-native-vector-icons` installation and usage, check out their official documentation: https://github.com/oblador/react-native-vector-icons#osx-via-react-native-desktop*
+
 * **Drawer Navigator** (From left)
 
   Check out the official documentation: https://reactnavigation.org/docs/drawer-based-navigation
