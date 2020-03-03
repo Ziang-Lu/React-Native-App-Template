@@ -12,7 +12,7 @@ function StyledButton({ onPress, text }) {
 }
 
 export default function DetailsScreen({ route, navigation }) {
-  // Add a button on the header
+  // Dynamically add a button on the header
   React.useLayoutEffect(() =>
     navigation.setOptions({
       headerRight: () => (
