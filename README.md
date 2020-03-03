@@ -1,3 +1,5 @@
+This repo provides a basic template of a React-Native, which demos a lot of fundamental components and their usages. This could be a referenece for future mobile app development.
+
 # React-Native App Template
 
 ## `React-Native` Setup
